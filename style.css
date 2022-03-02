@@ -1,8 +1,19 @@
-*{
+*{ 
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+   
 }
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+
 
 .hero {
     width: 100%;
@@ -19,6 +30,30 @@
     cursor: pointer;
 }
 
+.container {
+
+    color: #fbfcfd;
+    position: absolute;
+    top: 50%;
+    left: 8%; 
+    transform: translateY(-50%);
+    z-index: 2;
+    
+}
+
+
+
+/*
+.content {
+    color: #fbfcfd;
+    position: absolute;
+    top: 50%;
+    left: 8%; 
+    transform: translateY(-50%);
+    z-index: 2;
+}
+*/
+
 .navbar {
     width: 85%;
     height: 15%;
@@ -28,25 +63,185 @@
     justify-content: space-between;
 }
  
-.button {
-    color: #fbfcfd;
-    padding: 10px 25px;
-    background: transparent;
-    border: 1px solid #fff;
-    border-radius: 20px;
-    outline: none;
-    cursor: pointer;
+
+.wrapper{
+    display: inline-flex;
+    background: #343F4F; /* SET TO SCREEN BACKGROUND*/
+    width: 100%;
 }
 
+.wrapper .static-txt{
+    color: #fff;
+    font-size: 30px;
+    font-weight: 400;
+}
 
-.content {
-    color: #fbfcfd;
+.wrapper .dynamic-txts {
+    margin-left: 15px;
+    height: 35px;
+    line-height: 35px;
+    background: red;
+    overflow: hidden; /* hiddes other options */
+}
+
+.dynamic-txts li {
+    color: #FC6D6D;
+    list-style: none;
+    font-size: 30px;
+    font-weight: 500;
+    position: relative;
+    top:0;
+    animation: slide 2s steps(3) infinite;
+}
+
+@keyframes slide { 
+    100%{ 
+       top: -360px;
+    }
+
+
+}
+
+.dynamic-txts li span{
+    position: relative;
+}
+
+.dynamic-txts li span::after{
+    content: "";
     position: absolute;
-    top: 50%;
-    left: 8%; 
-    transform: translateY(-50%);
-    z-index: 2;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #343F4F; /* SET TO SCREEN BACKGROUND*/
+    border-left: 2px solid #FC6D6D;
+    animation: typing 1s steps(9) infinite;
 }
+
+@keyframes typing {
+    100%{
+        left: 100%;
+        margin: 0 -35px 0 35px;
+    }
+
+
+}
+
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .btn {
+    text-decoration: none;
+    padding: 20px 50px;
+    font-size: 1.25rem;
+    position: relative;
+    margin: 32px;
+  }
+  
+  /* Button 1*/
+  
+  .btn-1 {
+    background: #000;
+    color: #fff;
+    border-radius: 30px;
+    transition: transform 0.3s ease;
+  }
+  
+  .btn-1::after,
+  .btn-1::before {
+    content: "";
+    position: absolute;
+    opacity: 0.3;
+    background: #000;
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: transform 0.3s ease;
+  }
+  
+  .btn-1:hover {
+    transform: translate(-12px, -12px);
+  }
+  
+  .btn-1:hover::after {
+    transform: translate(6px, 6px);
+  }
+  
+  .btn-1:hover::before {
+    transform: translate(12px, 12px);
+  }
+  
+  /* Button 2 */
+  
+  .btn-2 {
+    color: #000;
+  }
+  
+  .btn-2::after,
+  .btn-2::before {
+    border: 3px solid #000;
+    content: "";
+    position: absolute;
+    width: calc(100% - 6px);
+    height: calc(100% - 6px);
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: transform 0.3s ease;
+  }
+  
+  .btn-2:hover::after {
+    transform: translate(-5px, -5px);
+  }
+  
+  .btn-2:hover::before {
+    transform: translate(5px, 5px);
+  }
+  
+  /* Button 3 */
+  
+  .btn-3 {
+    overflow: hidden;
+    color: #fff;
+    border-radius: 30px;
+    box-shadow: 0 0 0 0 rgba(143, 64, 248, 0.5), 0 0 0 0 rgba(39, 200, 255, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .btn-3::after {
+    content: "";
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    top: -50px;
+    left: -100px;
+    background-color: #ff3cac;
+    background-image: linear-gradient(
+      225deg,
+      #27d86c 0%,
+      #26caf8 50%,
+      #c625d0 100%
+    );
+    z-index: -1;
+    transition: transform 0.5s ease;
+  }
+  
+  .btn-3:hover {
+    transform: translate(0, -6px);
+    box-shadow: 10px -10px 25px 0 rgba(143, 64, 248, 0.5),
+      -10px 10px 25px 0 rgba(39, 200, 255, 0.5);
+  }
+  
+  .btn-3:hover::after {
+    transform: rotate(150deg);
+  }
+  
+
 
 h1 {
     font-size: 80px;
